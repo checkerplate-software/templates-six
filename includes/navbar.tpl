@@ -1,4 +1,7 @@
 {foreach $navbar as $item}
+    {if in_array($item->getName(), ['Home', 'Announcements', 'Knowledgebase', 'Network Status', 'Contact Us', 'Support', 'Open Ticket'])}
+        {continue}
+    {/if}
     <li menuItemName="{$item->getName()}"{if $item->hasChildren()} class="dropdown"{elseif $item->getClass()} class="{$item->getClass()}"{/if} id="{$item->getId()}">
         <a {if $item->hasChildren()}class="dropdown-toggle" data-toggle="dropdown" href="#"{else}href="{$item->getUri()}"{/if}{if $item->getAttribute('target')} target="{$item->getAttribute('target')}"{/if}>
             {if $item->hasIcon()}<i class="{$item->getIcon()}"></i>&nbsp;{/if}

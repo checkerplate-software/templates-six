@@ -1,4 +1,7 @@
 {foreach $sidebar as $item}
+    {if in_array($item->getName(), ['Client Contacts'])}
+        {continue}
+    {/if}
     <div menuItemName="{$item->getName()}" class="panel {if $item->getClass()}{$item->getClass()}{else}panel-default{/if}{if $item->getExtra('mobileSelect') and $item->hasChildren()} hidden-sm hidden-xs{/if}"{if $item->getAttribute('id')} id="{$item->getAttribute('id')}"{/if}>
         <div class="panel-heading">
             <h3 class="panel-title">
